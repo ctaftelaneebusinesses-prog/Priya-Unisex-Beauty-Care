@@ -1,5 +1,5 @@
 import type { AuthUser } from "@/types";
-import { getAuthToken, setAuthToken, setUnauthorizedHandler } from "./storage";
+import { apiFetch, getAuthToken, setAuthToken, setUnauthorizedHandler } from "./storage";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:4000/api";
 const SESSION_USER_KEY = "priya-salon:session-user";
@@ -44,3 +44,20 @@ setUnauthorizedHandler(() => {
     window.location.href = "/login";
   }
 });
+
+/**
+ * Owner-only login/account management. Adding an Employee record does NOT by
+ * itself create a way for that person to sign in — these functions are what
+ * actually grant, reset, or revoke access to the app.
+ */
+export const userAccountService = {
+  listUsers: () => apiFetch<AuthUser[]>("/auth/users"),
+
+  createLogin: (input: { name: string; email: string; password: string; employeeId: string }) =>
+    apiFetch<AuthUser>("/auth/users", { method: "POST", body: JSON.stringify(input) }),
+
+  resetPassword: (userId: string, password: string) =>
+    apiFetch<{ ok: true }>(`/auth/users/${userId}/password`, { method: "PATCH", body: JSON.stringify({ password }) }),
+
+  revokeLogin: (userId: string) => apiFetch<void>(`/auth/users/${userId}`, { method: "DELETE" }),
+};

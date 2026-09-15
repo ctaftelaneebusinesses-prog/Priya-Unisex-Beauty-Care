@@ -156,7 +156,7 @@ export function runSeed(): void {
 
   // ---------- Users ----------
   const rawUsers = [
-    { id: "user-owner", name: "Priya Malhotra", email: "aidev-usr1@raytcs.com", role: "OWNER" as const, password: "owner123" },
+    { id: "user-owner", name: "Priya Malhotra", email: "craftlanee@gmail.com", role: "OWNER" as const, password: "owner123" },
     { id: "user-grisha", name: "Grisha Kapoor", email: "grisha@priyasalon.in", role: "EMPLOYEE" as const, employeeId: "emp-grisha", password: "employee123" },
     { id: "user-anu", name: "Anu Reddy", email: "anu@priyasalon.in", role: "EMPLOYEE" as const, employeeId: "emp-anu", password: "employee123" },
   ];

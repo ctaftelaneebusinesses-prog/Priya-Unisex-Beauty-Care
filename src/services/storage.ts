@@ -24,7 +24,7 @@ export function setAuthToken(token: string | null): void {
   else localStorage.removeItem(TOKEN_KEY);
 }
 
-async function apiFetch<T>(path: string, options: RequestInit = {}): Promise<T> {
+export async function apiFetch<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = getAuthToken();
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...options,

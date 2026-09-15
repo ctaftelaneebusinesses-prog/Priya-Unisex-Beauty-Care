@@ -8,7 +8,7 @@ import { Button } from "@/components/Button";
 
 export function LoginPage() {
   const { user, login } = useAuth();
-  const [email, setEmail] = useState("aidev-usr1@raytcs.com");
+  const [email, setEmail] = useState("craftlanee@gmail.com");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -69,6 +69,8 @@ export function LoginPage() {
             <FormField label="Email" required>
               <Input
                 type="email"
+                name="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@priyasalon.in"
@@ -78,6 +80,8 @@ export function LoginPage() {
             <FormField label="Password" required>
               <Input
                 type="password"
+                name="password"
+                autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
@@ -97,7 +101,7 @@ export function LoginPage() {
 
           <div className="mt-8 rounded-xl border border-cream-300 bg-white px-4 py-3.5 text-xs text-ink-600 leading-relaxed">
             <p className="font-semibold text-ink-800 mb-1">Demo credentials</p>
-            <p>Owner — aidev-usr1@raytcs.com / owner123</p>
+            <p>Owner — craftlanee@gmail.com / owner123</p>
             <p>Employee — grisha@priyasalon.in / employee123</p>
           </div>
         </div>

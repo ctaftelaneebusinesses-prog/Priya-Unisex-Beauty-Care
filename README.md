@@ -69,7 +69,7 @@ Two seeded accounts (see `server/src/seed.ts` → `rawUsers`):
 
 | Role     | Email                       | Password       |
 |----------|------------------------------|----------------|
-| Owner    | `aidev-usr1@raytcs.com`      | `owner123`     |
+| Owner    | `craftlanee@gmail.com`       | `owner123`     |
 | Employee | `grisha@priyasalon.in`       | `employee123`  |
 
 To reset all demo data, stop the backend, delete `server/data/salon.db`, and
